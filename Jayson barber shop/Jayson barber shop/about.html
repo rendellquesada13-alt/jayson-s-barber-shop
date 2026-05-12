@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Jayson's Cut</title>
+    <link rel="icon" type="image/png" href="cut-scissors.gif">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #EDE7D9;
+            background: #000;
+        }
+        header {
+            background-color: rgba(26, 26, 26, 0.9);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #EDE7D9;
+        }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: bold;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            font-size: 16px;
+            font-weight: 500;
+            color: #EDE7D9;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #d1a570;
+        }
+        .hero-about-container {
+            background: url('about-top.jpg') no-repeat center top, url('cat.png') no-repeat center bottom;
+            background-size: cover, cover;
+            padding: 10px;
+            margin: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .hero {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #EDE7D9;
+            font-size: 36px;
+            font-weight: bold;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+            width: 100%;
+        }
+        .content-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            width: 100%;
+        }
+        .left-content, .right-content {
+            flex: 1;
+            padding: 20px;
+        }
+        .left-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+        .left-content p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .book-now {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background: #EDE7D9;
+            color: #000;
+            text-transform: uppercase;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .book-now:hover {
+            background: #d1a570;
+        }
+        .right-content {
+            text-align: right;
+        }
+        .right-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .right-content p {
+            font-size: 16px;
+        }
+        .background-bottom {
+            background: url('chair.jpg') no-repeat center center/cover;
+            height: 250px;
+            margin-top: 20px; /* Add margin for spacing */
+        }
+        .cream-text{
+            color: #EDE7D9;
+        }
+        .cream-button{
+             background: #EDE7D9;
+             color: #000;
+        }
+
+        footer {
+            background-image: "chair.jpg";
+            color: #b38a5c;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="logo">Jayson's Cut</h1>
+        <nav>
+            <ul>
+                <li><a href="barberhome.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="book.html">Book Now</a></li>
+                <li><a href="help.html">Help</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="hero-about-container">
+        <div class="hero cream-text">About Us</div>
+        <div class="content-wrapper">
+            <div class="left-content">
+                <h2 class="cream-text">Independent Student Barber is Waiting for You</h2>
+                <p class="cream-text">At Jayson's Cut, i am dedicated to providing high-quality haircuts and grooming services. My experience ensure you leave looking and feeling your best.</p>
+                <a href="book.html" class="book-now cream-button">Book Now</a>
+            </div>
+            
+            <div class="right-content">
+                <h2 class="cream-text">Special Opening Hours</h2>
+                <p class="cream-text"><strong>Monday - Friday:</strong> 9:00 AM - 7:30 PM</p>
+                <p class="cream-text"><strong>Saturday - Sunday:</strong> Closed</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="background-bottom">
+        <footer>
+            <p>&copy; 2025 Jayson's Cut. All rights reserved.</p>
+        </footer>
+    </div>
+ 
+</body>
+</html>

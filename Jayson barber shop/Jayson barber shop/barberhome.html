@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jayson's Cut</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="cut-scissors.gif"> 
+    <style>
+        /* Splash Screen Styles */
+        #splash {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #1A1A1A;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 10000;
+        }
+
+        #splash .gif-container {
+            width: 150px; /* Adjust size as needed */
+            height: 150px; /* Adjust size as needed */
+            margin-bottom: 20px; /* Space between GIF and progress bar */
+        }
+
+        #splash .gif-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        #splash .progress-bar {
+            width: 200px;
+            height: 10px;
+            background-color: #444;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        #splash .progress {
+            width: 0;
+            height: 100%;
+            background-color: #d1a570;
+            transition: width 2s ease-in-out;
+        }
+
+        /* Global Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: #222;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .btn {
+            background-color: #d1a570;
+            color: #fff;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 5px;
+            transition: background 0.3s;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: #b38a5c;
+        }
+
+        /* Header */
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: rgba(26, 26, 26, 0.9);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: bold;
+            color: #EDE7D9;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            font-size: 16px;
+            font-weight: 500;
+            color: #EDE7D9;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #d1a570;
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            background: url('cober.jpg') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #EDE7D9;
+            position: relative;
+        }
+
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(26, 26, 26, 0.7);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+        }
+
+        .hero-content h2 {
+            font-size: 64px;
+            margin-bottom: 20px;
+            color: #d1a570; /* Cream color */
+        }
+
+        .hero-content p {
+            font-size: 24px;
+            margin-bottom: 40px;
+        }
+
+        /* Services Section */
+        #services {
+            padding: 80px 40px;
+            background-color: #EDE7D9;
+            text-align: center;
+            margin-bottom: 60px; /* Adds space between services and gallery */
+        }
+
+        #services::after {
+            content: "";
+            display: block;
+            height: 500px; /* Adjust the height as needed */
+            background-color: #EDE7D9; /* Same as the background */
+        }
+
+        #services h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #1A1A1A;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #1A1A1A;
+        }
+
+        .service-card p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .hover-image {
+            display: none;
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        /* Gallery Section */
+        #gallery {
+            padding: 80px 40px;
+            background-color: #1A1A1A;
+            text-align: center;
+        }
+
+        #gallery h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #b38a5c;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1A1A1A;
+            color: #b38a5c;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Splash Screen -->
+    <div id="splash">
+        <div class="gif-container">
+            <img src="cut-scissors.gif" alt="Loading GIF"> <!-- Replace with your GIF path -->
+        </div>
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+    </div>
+
+    <header>
+        <h1 class="logo">Jayson's Cut</h1>
+        <nav>
+            <ul>
+                <li><a href="barberhome.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="book.html">Book Now</a></li>
+                <li><a href="help.html">Help</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!-- Hero Section -->
+        <section id="hero">
+            <div class="hero-content">
+                <h2>Style, Precision, Confidence</h2>
+                <p>Book your next haircut with me.</p>
+                <a href="book.html" class="btn">Book Now</a>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services">
+            <h2>Our Services</h2>
+            <div class="service-grid">
+                <div class="service-card" id="haircut-card">
+                    <h3>Haircut</h3>
+                    <p>Professional haircuts tailored to your style.</p>
+                    <img src="gupit.jpg" alt="Haircut Preview" class="hover-image">
+                </div>
+                <div class="service-card" id="beard-trim-card">
+                    <h3>Beard Trim</h3>
+                    <p>Precision beard trimming and shaping.</p>
+                    <img src="nigga.webp" alt="Beard Trim Preview" class="hover-image">
+                </div>
+                <div class="service-card" id="styling-card">
+                    <h3>Styling</h3>
+                    <p>Modern styling for a fresh look.</p>
+                    <img src="cut3.jpg" alt="Styling Preview" class="hover-image">
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery">
+            <h2>Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="cutt (1).png" alt="Gallery Image 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="cut4.jpg" alt="Gallery Image 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="cut3.jpg" alt="Gallery Image 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="cut2.jpg" alt="Gallery Image 4">
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Jayson's Cut. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Splash Screen Animation
+        document.addEventListener("DOMContentLoaded", function() {
+            const splash = document.getElementById('splash');
+            const progressBar = document.querySelector('.progress');
+
+            // Simulate loading progress
+            setTimeout(() => {
+                progressBar.style.width = '100%';
+            }, 100);
+
+            // Hide splash screen after loading
+            setTimeout(() => {
+                splash.style.display = 'none';
+            }, 3000); // Adjust the time as needed
+
+            // Hover effect for service cards
+            const cards = document.querySelectorAll('.service-card');
+            cards.forEach(card => {
+                const hoverImage = card.querySelector('.hover-image');
+                card.addEventListener('mouseenter', () => {
+                    hoverImage.style.display = 'block';
+                });
+                card.addEventListener('mouseleave', () => {
+                    hoverImage.style.display = 'none';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
