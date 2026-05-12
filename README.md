@@ -9,7 +9,7 @@ Jayson's Cut is a business website simulation for a barbershop with online booki
 
 ---
 
-## ⚙️ Tech Stack
+##  Tech Stack
 - PHP
 - MySQL
 - HTML
@@ -33,5 +33,5 @@ To simulate a real-world barbershop website with booking and content management 
 
 ---
 
-## 📌 Status
+## Status
 ✔ Fully designed UI + functional booking system
