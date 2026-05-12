@@ -1,10 +1,10 @@
-# 💈 Jayson's Cut – Barber Shop Website
+#  Jayson's Cut – Barber Shop Website
 
 A modern barber shop website designed with a **stylish monochromatic theme** and booking functionality.
 
 ---
 
-## 💡 Overview
+##  Overview
 Jayson's Cut is a business website simulation for a barbershop with online booking, pricing, and hairstyle inspiration.
 
 ---
@@ -18,7 +18,7 @@ Jayson's Cut is a business website simulation for a barbershop with online booki
 
 ---
 
-## 🚀 Features
+##  Features
 - Online booking system
 - Service pricing display
 - Hairstyle gallery
@@ -28,7 +28,7 @@ Jayson's Cut is a business website simulation for a barbershop with online booki
 
 ---
 
-## 🎯 Purpose
+##  Purpose
 To simulate a real-world barbershop website with booking and content management features.
 
 ---
